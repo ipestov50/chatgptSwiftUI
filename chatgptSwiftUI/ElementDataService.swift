@@ -8,7 +8,10 @@
 
 import Foundation
 
-public class ElementDataService {
+import Foundation
+
+class ElementDataService {
+    // Список всех элементов
     @Published var elements = [
         Element(name: "Computer"),
         Element(name: "Monitor"),
@@ -18,12 +21,13 @@ public class ElementDataService {
         Element(name: "Printer")
     ]
 
-    public func toggleFavorite(element: Element) {
+    func toggleFavorite(element: Element) {
         if let index = elements.firstIndex(where: { $0.id == element.id }) {
             elements[index].isFavorite.toggle()
         }
     }
 }
+
 
 
 

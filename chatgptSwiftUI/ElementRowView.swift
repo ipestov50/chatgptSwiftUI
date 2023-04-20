@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-
 struct ElementRow: View {
-    @Binding var element: Element
+    @ObservedObject var element: Element
 
     var body: some View {
         HStack {
@@ -23,6 +22,7 @@ struct ElementRow: View {
         }
     }
 }
+
 
 
 

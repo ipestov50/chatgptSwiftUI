@@ -7,29 +7,35 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var viewModel = ElementListViewModel()
+    @ObservedObject var viewModel = ElementListViewModel()
 
     var body: some View {
         NavigationView {
             VStack {
+                // Компонент SearchBar с привязкой к searchText
                 SearchBar(text: $viewModel.searchText)
 
+                // Используем ZStack для отображения индикатора активности поверх списка элементов
                 ZStack {
+                    // Список элементов
                     List(viewModel.filteredElements) { element in
-                        ElementRow(element: $viewModel.elements[viewModel.elements.firstIndex(of: element)!])
+                        ElementRow(element: element)
                     }
 
+                    // Индикатор активности, отображается только когда isLoading равно true
                     if viewModel.isLoading {
                         ProgressView()
                             .progressViewStyle(CircularProgressViewStyle())
-                            .scaleEffect(1.5)
+                            .scaleEffect(1.5) // Изменение размера индикатора активности
                     }
                 }
             }
             .navigationBarTitle("Search Elements")
         }
+
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

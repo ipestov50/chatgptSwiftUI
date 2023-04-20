@@ -6,11 +6,12 @@
 //
 // ElementListViewModel.swift
 
-import Foundation
+import SwiftUI
 import Combine
 
-public class ElementListViewModel: ObservableObject {
+class ElementListViewModel: ObservableObject {
     @Published var searchText = ""
+    @Published var isLoading = false
     @Published var elements = [
         Element(name: "Computer"),
         Element(name: "Monitor"),
@@ -23,8 +24,9 @@ public class ElementListViewModel: ObservableObject {
     private(set) var filteredElements: [Element] = []
 
     private var cancellable: AnyCancellable?
+    private var dataService = ElementDataService()
 
-    public init() {
+    init() {
         cancellable = $searchText
             .debounce(for: 0.3, scheduler: DispatchQueue.main)
             .sink { searchText in
@@ -33,34 +35,29 @@ public class ElementListViewModel: ObservableObject {
     }
 
     private func updateFilteredElements(searchText: String) {
-        let (startsWith, contains) = elements.reduce(([], [])) { (result, element) -> ([Element], [Element]) in
-            var (startsWith, contains) = result
-            if element.name.range(of: searchText, options: [.anchored, .caseInsensitive, .diacriticInsensitive]) != nil {
-                startsWith.append(element)
-            } else if element.name.range(of: searchText, options: [.caseInsensitive, .diacriticInsensitive]) != nil {
-                contains.append(element)
+        isLoading = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let (startsWith, contains) = self.elements.reduce(([], [])) { (result, element) -> ([Element], [Element]) in
+                var (startsWith, contains) = result
+                if element.name.range(of: searchText, options: [.anchored, .caseInsensitive, .diacriticInsensitive]) != nil {
+                    startsWith.append(element)
+                } else if element.name.range(of: searchText, options: [.caseInsensitive, .diacriticInsensitive]) != nil {
+                    contains.append(element)
+                }
+                return (startsWith, contains)
             }
-            return (startsWith, contains)
-        }
 
-        self.filteredElements = searchText.isEmpty ? [] : startsWith + contains
+            self.filteredElements = searchText.isEmpty ? [] : startsWith + contains
+            self.isLoading = false
+        }
     }
     
-    public func toggleFavorite(element: Element) {
-        if let index = elements.firstIndex(where: { $0.id == element.id }) {
-            elements[index].isFavorite.toggle()
-            updateFilteredElements(searchText: searchText)
-        }
-    }
-
-    @Published public var isLoading = false {
-        didSet {
-            if isLoading {
-                filteredElements = []
-            }
-        }
+    func toggleFavorite(element: Element) {
+        dataService.toggleFavorite(element: element)
+        updateFilteredElements(searchText: searchText)
     }
 }
+
 
 
 
