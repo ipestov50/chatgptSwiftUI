@@ -11,6 +11,12 @@
 		73526A7A29F16CEC0049512E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73526A7929F16CEC0049512E /* ContentView.swift */; };
 		73526A7C29F16CEE0049512E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73526A7B29F16CEE0049512E /* Assets.xcassets */; };
 		73526A7F29F16CEE0049512E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73526A7E29F16CEE0049512E /* Preview Assets.xcassets */; };
+		73526A8629F16E130049512E /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73526A8529F16E130049512E /* Element.swift */; };
+		73526A8829F16E320049512E /* ElementListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73526A8729F16E320049512E /* ElementListViewModel.swift */; };
+		73526A8A29F16E520049512E /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73526A8929F16E520049512E /* SearchBar.swift */; };
+		73526A8C29F1A6810049512E /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73526A8B29F1A6810049512E /* SearchBarView.swift */; };
+		73526A8E29F1A6A00049512E /* ElementRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73526A8D29F1A6A00049512E /* ElementRowView.swift */; };
+		73526A9029F1ACCC0049512E /* ElementDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73526A8F29F1ACCC0049512E /* ElementDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,12 @@
 		73526A7929F16CEC0049512E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		73526A7B29F16CEE0049512E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73526A7E29F16CEE0049512E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		73526A8529F16E130049512E /* Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
+		73526A8729F16E320049512E /* ElementListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementListViewModel.swift; sourceTree = "<group>"; };
+		73526A8929F16E520049512E /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		73526A8B29F1A6810049512E /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		73526A8D29F1A6A00049512E /* ElementRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementRowView.swift; sourceTree = "<group>"; };
+		73526A8F29F1ACCC0049512E /* ElementDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +65,12 @@
 			children = (
 				73526A7729F16CEC0049512E /* chatgptSwiftUIApp.swift */,
 				73526A7929F16CEC0049512E /* ContentView.swift */,
+				73526A8F29F1ACCC0049512E /* ElementDataService.swift */,
+				73526A8B29F1A6810049512E /* SearchBarView.swift */,
+				73526A8D29F1A6A00049512E /* ElementRowView.swift */,
+				73526A8529F16E130049512E /* Element.swift */,
+				73526A8729F16E320049512E /* ElementListViewModel.swift */,
+				73526A8929F16E520049512E /* SearchBar.swift */,
 				73526A7B29F16CEE0049512E /* Assets.xcassets */,
 				73526A7D29F16CEE0049512E /* Preview Content */,
 			);
@@ -137,8 +155,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73526A9029F1ACCC0049512E /* ElementDataService.swift in Sources */,
+				73526A8E29F1A6A00049512E /* ElementRowView.swift in Sources */,
 				73526A7A29F16CEC0049512E /* ContentView.swift in Sources */,
 				73526A7829F16CEC0049512E /* chatgptSwiftUIApp.swift in Sources */,
+				73526A8A29F16E520049512E /* SearchBar.swift in Sources */,
+				73526A8629F16E130049512E /* Element.swift in Sources */,
+				73526A8C29F1A6810049512E /* SearchBarView.swift in Sources */,
+				73526A8829F16E320049512E /* ElementListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
